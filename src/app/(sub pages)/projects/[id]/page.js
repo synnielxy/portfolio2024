@@ -88,7 +88,7 @@ export default function ProjectPage({ params }) {
             return (
               <div
                 key={index}
-                className=" aspect-w-3 aspect-h-2 md:aspect-w-6 md:aspect-h-3 overflow-hidden rounded-xl"
+                className=" aspect-w-3 aspect-h-2 md:aspect-w-6 md:aspect-h-3 overflow-hidden rounded-xl cursor-pointer"
               >
                 {/* <Image
                   src={img}
@@ -176,7 +176,7 @@ export default function ProjectPage({ params }) {
         {project.img.map((img, index) => (
           <div
             key={index}
-            className="flex-shrink-0 relative overflow-hidden rounded-xl"
+            className="flex-shrink-0 relative overflow-hidden rounded-xl cursor-pointer"
             style={{ width: "60vw", aspectRatio: "3 / 2" }}
           >
             <img
