@@ -13,6 +13,9 @@
   scrollbar-width: none; /* 对 Firefox 隐藏滚动条 */
   -ms-overflow-style: none; /* 对 IE 隐藏滚动条 */
 }
+.no-scroll {
+  overflow: hidden;
+}
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* 对 Chrome、Safari 和 Edge 隐藏滚动条 */
