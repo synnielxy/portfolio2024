@@ -204,7 +204,7 @@ const Index = () => {
                 variants={slideUp}
                 className="w-1/2"
               >
-                <Button href={`/projects/${currentProject.link}`}>VISIT</Button>
+                <Button href={`/projects/${currentProject.link}`}>OPEN</Button>
                 {/* <button
         className="border
           border-black  py-1 px-4 rounded-lg flex items-center
