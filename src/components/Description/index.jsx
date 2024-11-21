@@ -62,13 +62,16 @@ const Index = () => {
   const handleTouchEnd = (e) => {
     const endY = e.changedTouches[0].clientY;
     const deltaY = startY - endY;
-
-    if (deltaY > 30 && currentIndex < projectsData.length - 1) {
+    console.log(currentIndex, projectsData.length);
+    if (deltaY > 30) {
       // 向上滑动
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    } else if (deltaY < -30 && currentIndex > 0) {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+    } else if (deltaY < -30) {
       // 向下滑动
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      setCurrentIndex(
+        (prevIndex) =>
+          (prevIndex - 1 + projectsData.length) % projectsData.length
+      );
     }
   };
 

@@ -8,6 +8,17 @@
   --color-border: #d1d5db; /* 灰色 */
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 防止水平滚动 */
+  overscroll-behavior-y: contain; /* 防止背景上下浮动 */
+  height: 100%;
+
+  overscroll-behavior: none;
+}
+
+
 /* 通用隐藏滚动条样式 */
 .hide-scrollbar {
   scrollbar-width: none; /* 对 Firefox 隐藏滚动条 */
