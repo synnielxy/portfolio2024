@@ -44,10 +44,13 @@ const Index = () => {
     debounceTimeout.current = setTimeout(() => {
       const delta = e.deltaY;
 
-      if (delta > 0 && currentIndex < projectsData.length - 1) {
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      } else if (delta < 0 && currentIndex > 0) {
-        setCurrentIndex((prevIndex) => prevIndex - 1);
+      if (delta > 0) {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+      } else if (delta < 0) {
+        setCurrentIndex(
+          (prevIndex) =>
+            (prevIndex - 1 + projectsData.length) % projectsData.length
+        );
       }
     }, 100); // 设置去抖时间（200ms）
   };
