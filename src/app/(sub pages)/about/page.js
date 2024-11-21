@@ -109,7 +109,7 @@ const Index = () => {
 
       <div
         ref={imageRef}
-        className="absolute top-[20px] left-[50%] md:top-1/2 md:left-[60%] w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden"
+        className="absolute top-[20px] left-[50%] md:top-1/2 md:left-[60%] w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden"
       >
         <img
           src="/images/pic.png"
