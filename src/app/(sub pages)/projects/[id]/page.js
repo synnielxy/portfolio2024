@@ -44,9 +44,19 @@ export default function ProjectPage({ params }) {
   const project = getProjectById(id);
   const adjacentLinks = findAdjacentLinks(projectsData, id);
 
+  const projectDetails = [
+    { label: "ROLE", value: project.role },
+    { label: "CLIENT", value: project.client },
+    { label: "DATE", value: project.date },
+    {
+      label: "TECHNOLOGIES",
+      value: project.technologies.join(", "),
+    },
+  ];
+
   return (
     <>
-      <div className=" md:absolute w-full h-1/2 md:h-screen flex flex-col md:flex-row z-1 md:overflow-hidden px-10 md:px-16">
+      <div className=" md:absolute w-full h-1/2 md:h-screen flex flex-col md:flex-row z-1  px-10 md:px-16">
         <div className="md:h-screen sticky flex flex-col md:w-1/3 md:mt-24">
           <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden pb-3 cursor-pointer">
             <motion.div
@@ -66,16 +76,16 @@ export default function ProjectPage({ params }) {
               animate="open"
               custom={2}
               variants={slideUp}
-              className="font-inria text-gray-500"
+              className="font-inria text-gray-500 max-w-[300px]"
             >
               {project.desc}
             </motion.p>
           </div>
-          <div className="overflow-hidden max-w-64 min-w-60 flex mt-6 mb-6">
+          <div className="overflow-hidden max-w-64 min-w-60 flex mt-6 mb-6 ">
             <motion.p
               initial="initial"
               animate="open"
-              custom={2}
+              custom={3}
               variants={slideUp}
               className=""
             >
@@ -103,72 +113,53 @@ export default function ProjectPage({ params }) {
                   onClick={(e) => {
                     setViewing(true);
                     setImageSrc(e.target.src);
-                    console.log('click')
+                    console.log("click");
                   }}
                 />
               </div>
             );
           })}
         </div>
-        <div className="md:h-[400px] sticky grid grid-cols-2 md:grid-cols-1 md:w-1/3 md:mt-24 md:ml-12">
-          <div className="font-inria  items-center hidden md:flex">
-            <p className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl ">
-              0{project.id}
-            </p>
-            <p className="text-gray-500 px-3">/</p>
-            <p className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl ">06</p>
-          </div>
-          <div className="overflow-hidden ">
+        <div className="md:h-[400px] flex flex-col  md:grid-cols-1 md:w-1/3 min-w-[210px] md:mt-24 ">
+          <div className="overflow-y-hidden flex mx-auto">
             <motion.div
-              initial="initial"
-              animate="open"
-              custom={2}
-              variants={slideUp}
-              className="mt-1 md:mt-2 md:ml-6"
+              className="font-inria  items-center hidden md:flex"
+              layoutId="shared-title"
             >
-              <p className="text-sm">ROLE</p>
-              <p className="text-sm text-gray-500">{project.role}</p>
+              <p className="text-5xl md:text-6xl lg:text-7xl ">0{project.id}</p>
+              <p className="text-gray-500 px-3">/</p>
+              <p className="text-5xl md:text-6xl lg:text-7xl ">06</p>
             </motion.div>
           </div>
-          <div className="overflow-hidden ">
-            <motion.div
-              initial="initial"
-              animate="open"
-              custom={2}
-              variants={slideUp}
-              className="mt-1 md:mt-6 md:ml-6"
-            >
-              <p className="text-sm">CLIENT</p>
-              <p className="text-sm text-gray-500">{project.client}</p>
-            </motion.div>
-          </div>
-          <div className="overflow-hidden ">
-            <motion.div
-              initial="initial"
-              animate="open"
-              custom={2}
-              variants={slideUp}
-              className="mt-1 md:mt-6 md:ml-6"
-            >
-              <p className="text-sm">DATE</p>
-              <p className="text-sm text-gray-500">{project.date}</p>
-            </motion.div>
-          </div>
-          <div className="overflow-hidden ">
-            <motion.div
-              initial="initial"
-              animate="open"
-              custom={2}
-              variants={slideUp}
-              className="mt-1 md:mt-6 md:ml-6"
-            >
-              <p className="text-sm">TECHNOLOGIES</p>
-              <p className="text-sm text-gray-500 inline-flex gap-1 md:gap-2 ">
-                {project.technologies.map((tech, index) => {
-                  return <span key={index}>{tech}</span>;
-                })}
-              </p>
-            </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-1 gap-4 md:mx-auto mt-3">
+            {projectDetails.map((detail, index) => (
+              <div
+                key={index}
+                className={`overflow-hidden flex items-start`}
+              >
+                <motion.div
+                  initial="initial"
+                  animate="open"
+                  custom={4 + index}
+                  variants={slideUp}
+                  className=""
+                >
+                  <p className="text-sm">{detail.label}</p>
+                  <p className="text-sm text-gray-500">
+                    {detail.label === "TECHNOLOGIES" ? (
+                      <span className="inline-flex gap-1 md:gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <span key={techIndex}>{tech}</span>
+                        ))}
+                      </span>
+                    ) : (
+                      detail.value
+                    )}
+                  </p>
+                </motion.div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -186,7 +177,6 @@ export default function ProjectPage({ params }) {
               onClick={(e) => {
                 setViewing(true);
                 setImageSrc(e.target.src);
-                console.log('click')
               }}
             />
           </div>

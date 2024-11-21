@@ -8,7 +8,7 @@ const Index = () => {
       <div className="flex justify-between items-center px-6 md:px-10 lg:px-16 py-10">
         <div className="flex ">
           <div className="text-sm flex">
-            <p>{`Frontend Developer`}</p>
+            <p>{`Fullstack Developer`}</p>
           </div>
           {/* <div className='ml-20'>San Jose, 00:20 PM PST</div> */}
         </div>

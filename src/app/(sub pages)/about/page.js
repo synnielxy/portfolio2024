@@ -7,7 +7,25 @@ import { gsap } from "gsap";
 import Button from "@/common/Button";
 
 import Link from "@/common/Link";
-
+const skills = [
+  "Three.js",
+  "Next.js",
+  "GLSL",
+  "Firebase",
+  "React",
+  "Node.js",
+  "Express",
+  "D3.js",
+  "Typescript",
+  "Redux",
+  "Photoshop",
+  "After Effects",
+  "Blender",
+  "Serverless",
+  "Docker",
+  "Nginx",
+  "AWS",
+];
 const Index = () => {
   const imageRef = useRef(null);
 
@@ -37,9 +55,8 @@ const Index = () => {
             variants={slideUp}
             className="font-inria text-gray-500"
           >
-            Full stack developer and illustrator with more than a decade of
-            experience in creating interactive content for the web.Lately
-            focusing on WebGL, Next.js and serverless technologies.
+            Full stack developer with experience in designing and building immersive web experiences. 
+            Skilled in both front-end and back-end development, with a focus on WebGL, React, and serverless technologies.
           </motion.p>
         </div>
         <div className="mt-3 md:mt-6">
@@ -60,11 +77,11 @@ const Index = () => {
               animate="open"
               custom={3}
               variants={slideUp}
-              className="text-sm text-gray-500"
+              className="text-sm text-gray-500 space-x-1"
             >
-              Three.js Next.js Firebase Angular React Node.js Typescript
-              Photoshop After Effects Illustrator 3ds max Blender Serverless
-              Docker Nginx
+              {skills.map((skill, index) => (
+                <span key={index} className="">{skill}</span>
+              ))}
             </motion.p>
           </div>
         </div>

@@ -32,18 +32,38 @@ const Plane = dynamic(() => import("@/components/Background"), {
 // };
 const LoadingAnimation = ({ progress }) => (
   <div className="w-full h-screen flex items-center justify-center bg-[#FEF3E5] absolute top-0 left-0">
-      <div className="relative w-full">
-        <div
-          className="loading-line"
-          style={{
-            width: `${progress}%`, // 线条宽度根据 progress 动态变化
-            transform: "translateX(-50%)", // 确保线条中心对齐屏幕
-          }}
-        ></div>
-      </div>
+    <div className="relative w-full">
+      <div
+        className="loading-line"
+        style={{
+          width: `${progress}%`, // 线条宽度根据 progress 动态变化
+          transform: "translateX(-50%)", // 确保线条中心对齐屏幕
+        }}
+      ></div>
     </div>
+  </div>
 );
 export default function RootLayout({ children }) {
+  const [viewportHeight, setViewportHeight] = useState("100vh");
+
+  useEffect(() => {
+    const updateHeight = () => {
+      // 设置视口高度为实际窗口高度
+      setViewportHeight(`${window.innerHeight}px`);
+    };
+
+    // 初始化高度
+    updateHeight();
+
+    // 监听窗口变化事件
+    window.addEventListener("resize", updateHeight);
+
+    return () => {
+      // 清除事件监听
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, []);
+
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true); // 控制加载动画是否显示
 
@@ -70,13 +90,17 @@ export default function RootLayout({ children }) {
 
     return () => clearInterval(timer); // 清除计时器
   }, [progress]);
+
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${inriaSerif.variable} ${inriaSerifNormal.variable}`}
       >
-        <main className="font-sans flex w-screen h-screen flex-col justify-between relative">
-          {isLoading &&<LoadingAnimation progress={progress} />}
+        <main
+          className="font-sans flex w-screen overflow-hidden flex-col justify-between relative"
+          style={{ height: viewportHeight }}
+        >
+          {isLoading && <LoadingAnimation progress={progress} />}
           <div className="w-full h-screen absolute -z-10">
             <RenderModel>
               <Plane />

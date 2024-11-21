@@ -1,5 +1,4 @@
 "use client";
-import { Environment } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import {
   EffectComposer,
@@ -8,11 +7,9 @@ import {
   Noise,
   Vignette
 } from "@react-three/postprocessing";
-import clsx from "clsx";
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-//Camera Position: Vector3 {x: -0.0003484217338598324, y: -0.12276436134790858, z: 0.3646121510502436}
-//Camera Rotation: Euler {isEuler: true, _x: 0.3247761333028029, _y: -0.0009056388158811209, _z: 0.000304927172282712, _order: 'XYZ',
+
 const CameraControls = () => {
   const { camera, gl } = useThree(); // 只能在 Canvas 提供的上下文内调用
   return (
@@ -42,7 +39,6 @@ const RenderModel = ({ children, className }) => {
       // dpr is the device pixel ratio. Here we are setting it to 1 and 2 for retina displays to prevent blurriness in the model rendering on high resolution screens.
     >
       <Suspense fallback={null}>{children}</Suspense>
-      <Environment preset="dawn" />
       {/* <CameraControls /> */}
       <EffectComposer multisampling={0} disableNormalPass={true}>
         <DepthOfField
