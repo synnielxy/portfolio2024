@@ -3,13 +3,13 @@ import React, { useRef, useState, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import colors from "nice-color-palettes";
-
 import vertexShader from "./shaders/vertexShader";
 import fragmentShader from "./shaders/fragmentShader";
 
 const Plane = () => {
   // 随机选择调色板并映射到 THREE.Color
-  const idx = 71; //Math.floor(Math.random() * colors.length)
+  const numbers = [71, 1, 4, 9, 92, 47];
+  const idx = 71; //numbers[Math.floor(Math.random() * 6)];
   const palette = colors[idx].map((color) => new THREE.Color(color));
 
   const meshRef = useRef();

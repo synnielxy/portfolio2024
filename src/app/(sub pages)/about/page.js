@@ -40,9 +40,9 @@ const Index = () => {
     });
   }, []);
   return (
-    <div className="h-full relative w-full flex items-center justify-center pt-36 md:pt-0 overflow-hidden">
-      <div className="md:h-screen sticky flex flex-col px-12 md:px-24 md:max-w-[800px] md:mt-36">
-        <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden pb-3 cursor-pointer">
+    <div className="h-full relative w-full flex items-center justify-center pt-36 md:pt-0">
+      <div className="md:h-screen sticky flex flex-col pl-3 w-10/12 md:w-full md:pl-24 md:max-w-[800px] md:mt-36">
+        <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl  pb-3 cursor-pointer">
           <motion.div layoutId="shared-element" className="font-inria">
             About Synnie
           </motion.div>
@@ -71,13 +71,13 @@ const Index = () => {
               SKILLS
             </motion.p>
           </div>
-          <div className="overflow-hidden ">
+          <div className="overflow-hidden">
             <motion.p
               initial="initial"
               animate="open"
               custom={3}
               variants={slideUp}
-              className="text-sm text-gray-500 space-x-1"
+              className="text-sm text-gray-500 space-x-1 flex flex-wrap"
             >
               {skills.map((skill, index) => (
                 <span key={index} className="">{skill}</span>

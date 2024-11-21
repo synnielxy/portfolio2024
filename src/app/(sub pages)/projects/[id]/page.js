@@ -148,7 +148,7 @@ export default function ProjectPage({ params }) {
                   <p className="text-sm">{detail.label}</p>
                   <p className="text-sm text-gray-500">
                     {detail.label === "TECHNOLOGIES" ? (
-                      <span className="inline-flex gap-1 md:gap-2">
+                      <span className="inline-flex gap-1 md:gap-2 flex flex-wrap">
                         {project.technologies.map((tech, techIndex) => (
                           <span key={techIndex}>{tech}</span>
                         ))}

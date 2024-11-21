@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import RenderModel from "@/components/RenderModel";
 import "./globals.css";
-import { useProgress } from "@react-three/drei";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const inriaSerif = Inria_Serif({
