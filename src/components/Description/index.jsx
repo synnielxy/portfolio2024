@@ -255,18 +255,13 @@ const Index = () => {
               zIndex: index, // Stagger z-index to create depth
             }}
           >
-            <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-xl">
-              {/* <Image
-              src={currentProject.img[index % currentProject.img.length]}
-              width={150}
-              height={150}
-              alt={`image-${index}`}
-            /> */}
-              <img
-                src={modal.image}
-                alt={`image-${modal.id}`}
-                className="object-cover w-full h-full" // 确保图片适配容器
-              />
+            <div className="w-full h-full flex items-center justify-center overflow-hidden">
+              <Image
+              src={modal.image}
+              fill
+              className="object-cover rounded-xl"
+              alt={`image-${modal.id}`}
+            />
             </div>
           </motion.div>
         ))}

@@ -100,20 +100,14 @@ export default function ProjectPage({ params }) {
                 key={index}
                 className=" aspect-w-3 aspect-h-2 md:aspect-w-6 md:aspect-h-3 overflow-hidden rounded-xl cursor-pointer"
               >
-                {/* <Image
+                <Image
                   src={img}
                   alt={`Project image ${index}`}
                   fill
-                  sizes="100vw"
-                /> */}
-                <img
-                  src={img}
-                  alt={`Project image ${index}`}
                   className="object-cover"
                   onClick={(e) => {
                     setViewing(true);
-                    setImageSrc(e.target.src);
-                    console.log("click");
+                    setImageSrc(img);
                   }}
                 />
               </div>
@@ -134,10 +128,7 @@ export default function ProjectPage({ params }) {
 
           <div className="grid grid-cols-2 md:grid-cols-1 gap-4 md:mx-auto mt-3">
             {projectDetails.map((detail, index) => (
-              <div
-                key={index}
-                className={`overflow-hidden flex items-start`}
-              >
+              <div key={index} className={`overflow-hidden flex items-start`}>
                 <motion.div
                   initial="initial"
                   animate="open"
@@ -170,13 +161,14 @@ export default function ProjectPage({ params }) {
             className="flex-shrink-0 relative overflow-hidden rounded-xl cursor-pointer"
             style={{ width: "60vw", aspectRatio: "3 / 2" }}
           >
-            <img
+            <Image
               src={img}
-              alt="Example"
-              className="object-cover w-full h-full" // 确保图片适配容器
+              alt={`Project image ${index}`}
+              fill
+              className="object-cover"
               onClick={(e) => {
                 setViewing(true);
-                setImageSrc(e.target.src);
+                setImageSrc(img);
               }}
             />
           </div>
@@ -189,7 +181,17 @@ export default function ProjectPage({ params }) {
         className={"lightbox" + (viewing ? ` active` : "")}
         onClick={() => setViewing(false)}
       >
-        <img src={imageSrc} alt="lightbox of selected image" />
+        <Image
+          src={imageSrc}
+          alt="lightbox of selected image"
+          className="img"
+          layout="responsive"
+          width={800}
+          height={600}
+          quality={100} 
+          sizes="(max-width: 768px) 100vw, 50vw"
+          objectFit="contain" 
+        />
       </div>
     </>
   );

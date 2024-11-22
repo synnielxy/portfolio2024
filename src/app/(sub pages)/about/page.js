@@ -55,8 +55,10 @@ const Index = () => {
             variants={slideUp}
             className="font-inria text-gray-500"
           >
-            Full stack developer with experience in designing and building immersive web experiences. 
-            Skilled in both front-end and back-end development, with a focus on WebGL, React, and serverless technologies.
+            Full stack developer with experience in designing and building
+            immersive web experiences. Skilled in both front-end and back-end
+            development, with a focus on WebGL, React, and serverless
+            technologies.
           </motion.p>
         </div>
         <div className="mt-3 md:mt-6">
@@ -80,7 +82,9 @@ const Index = () => {
               className="text-sm text-gray-500 space-x-1 flex flex-wrap"
             >
               {skills.map((skill, index) => (
-                <span key={index} className="">{skill}</span>
+                <span key={index} className="">
+                  {skill}
+                </span>
               ))}
             </motion.p>
           </div>
@@ -111,10 +115,11 @@ const Index = () => {
         ref={imageRef}
         className="absolute top-[20px] left-[50%] md:top-1/2 md:left-[60%] w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden"
       >
-        <img
+        <Image
           src="/images/pic.png"
-          alt="Example"
-          className="object-cover w-full h-full"
+          fill
+          className="object-cover"
+          alt={`photo`}
         />
       </div>
     </div>

@@ -77,7 +77,7 @@ html, body {
   z-index: 51;
 }
 
-.lightbox img {
+.lightbox .img {
   max-width: min(100%, 85vh);
   max-height: 100%;
 }
