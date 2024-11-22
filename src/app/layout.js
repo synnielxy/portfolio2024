@@ -30,7 +30,7 @@ export const metadata = {
     url: "https://www.synnieli.com/",
     images: [
       {
-        url: "/images/record-img.png",
+        url: "https://www.synnieli.com/images/record-img.png",
         width: 1200,
         height: 630,
         alt: "Synnie Li's portfolio image",
@@ -41,7 +41,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Synnie Li Portfolio",
     description: "Explore Synnie Li's portfolio – a showcase of innovative projects, creative web designs, and technical expertise.",
-    images: ["/images/record-img.png"],
+    images: ["https://www.synnieli.com/images/record-img.png"],
   },
 };
 
