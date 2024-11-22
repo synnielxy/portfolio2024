@@ -22,7 +22,7 @@ const Index = ({ projects }) => {
             !projects.previous ? "ml-auto" : "" // 如果没有 previous，右对齐
           }`}
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col items-end">
             <div className="text-sm flex">
               <p>Next Project</p>
             </div>
