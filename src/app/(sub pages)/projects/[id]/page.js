@@ -58,7 +58,7 @@ export default function ProjectPage({ params }) {
     <>
       <div className=" md:absolute w-full h-1/2 md:h-screen flex flex-col md:flex-row z-1  px-10 md:px-16">
         <div className="md:h-screen sticky flex flex-col md:w-1/3 md:mt-24">
-          <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden pb-3 cursor-pointer">
+          <div className="flex text-[clamp(1rem,5vw,3rem)] pb-3 cursor-pointer">
             <motion.div
               layoutId="shared-element"
               // initial="initial"
@@ -115,14 +115,14 @@ export default function ProjectPage({ params }) {
           })}
         </div>
         <div className="md:h-[400px] flex flex-col  md:grid-cols-1 md:w-1/3 min-w-[210px] md:mt-24 ">
-          <div className="overflow-y-hidden flex mx-auto">
+          <div className=" flex mx-auto">
             <motion.div
               className="font-inria  items-center hidden md:flex"
               layoutId="shared-title"
             >
               <p className="text-5xl md:text-6xl lg:text-7xl ">0{project.id}</p>
               <p className="text-gray-500 px-3">/</p>
-              <p className="text-5xl md:text-6xl lg:text-7xl ">06</p>
+              <p className="text-5xl md:text-6xl lg:text-7xl ">07</p>
             </motion.div>
           </div>
 
@@ -188,9 +188,9 @@ export default function ProjectPage({ params }) {
           layout="responsive"
           width={800}
           height={600}
-          quality={100} 
+          quality={100}
           sizes="(max-width: 768px) 100vw, 50vw"
-          objectFit="contain" 
+          objectFit="contain"
         />
       </div>
     </>

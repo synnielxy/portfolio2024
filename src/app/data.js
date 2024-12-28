@@ -1,6 +1,37 @@
 export const projectsData = [
   {
     id: 1,
+    title: "3D Product Customization Platform",
+    subTitle: "Interactive 3D Shader & Customization",
+    img: [
+      "/images/customization-web/1.png",
+      "/images/customization-web/2.png",
+      "/images/customization-web/3.png",
+      "/images/customization-web/4.png",
+      "/images/customization-web/5.png",
+      "/images/customization-web/6.png",
+    ],
+    link: "customization-web",
+    url: "https://github.com/synnielxy/3d-product-customization-platform",
+    desc: "Built with Next.js 14 and TypeScript for efficient server-side rendering and dynamic frontend functionality, paired with Supabase (PostgreSQL) and Prisma ORM for reliable database management.",
+    role: "Design / Development",
+    client: "-",
+    date: "Dec, 2024",
+    technologies: [
+      "Nextjs 14",
+      "TypeScript",
+      "Supabase (PostgreSQL)",
+      "Prisma ORM",
+      "Stripe Subsctiptions",
+      "Clerk Authentication",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Three.js",
+      "Blender",
+    ],
+  },
+  {
+    id: 2,
     title: "Voxel Bunny",
     subTitle: "3D Shader",
     img: [
@@ -17,7 +48,7 @@ export const projectsData = [
     technologies: ["Three.js", "GLSL"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Portfolio 2023",
     subTitle: "WebGL",
     img: [
@@ -36,7 +67,7 @@ export const projectsData = [
     technologies: ["Blender", "React", "Three.js", "GLSL"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Wander Social",
     subTitle: "Social App Official Website",
     img: [
@@ -53,7 +84,7 @@ export const projectsData = [
     technologies: ["Next.js", "Framer motion", "GSAP"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Movie Website",
     subTitle: "Fullstack Website",
     img: [
@@ -73,7 +104,7 @@ export const projectsData = [
     technologies: ["React", "MongoDB", "Express.js"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Weather App",
     subTitle: "Weather Forecast Website",
     img: [
@@ -90,7 +121,7 @@ export const projectsData = [
     technologies: ["Next.js", "Framer motion", "GSAP"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Movie Swiper",
     subTitle: "Top Rated Movie Board",
     img: [

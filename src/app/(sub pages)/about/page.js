@@ -8,13 +8,14 @@ import Button from "@/common/Button";
 
 import Link from "@/common/Link";
 const skills = [
-  "Three.js",
-  "Next.js",
-  "GLSL",
-  "Firebase",
   "React",
+  "Next.js",
+  "Supabase",
+  "Firebase",
   "Node.js",
   "Express",
+  "GLSL",
+  "Three.js",
   "D3.js",
   "Typescript",
   "Redux",
@@ -25,6 +26,7 @@ const skills = [
   "Docker",
   "Nginx",
   "AWS",
+  "Stripe",
 ];
 const Index = () => {
   const imageRef = useRef(null);

@@ -160,7 +160,7 @@ const Index = () => {
 
         {/* Main Content */}
         <div className="w-3/4 flex flex-col justify-between items-center">
-          <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden h-[110px] cursor-pointer">
+          <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden min-h-[120px] cursor-pointer">
             <Link href={`/projects/${currentProject.link}`}>
               <motion.div
                 key={currentIndex}
