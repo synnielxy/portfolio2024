@@ -33,9 +33,12 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const debounceTimeout = useRef(null);
   let startY = 0;
+
+  // 倒序处理projectsData
+  const reversedProjectsData = [...projectsData].reverse();
+
   const handleScroll = (e) => {
     if (e.target.closest(".modal-class")) {
-      // 如果滚动事件来源是 modal，则忽略
       return;
     }
 
@@ -45,14 +48,17 @@ const Index = () => {
       const delta = e.deltaY;
 
       if (delta > 0) {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+        setCurrentIndex(
+          (prevIndex) => (prevIndex + 1) % reversedProjectsData.length
+        );
       } else if (delta < 0) {
         setCurrentIndex(
           (prevIndex) =>
-            (prevIndex - 1 + projectsData.length) % projectsData.length
+            (prevIndex - 1 + reversedProjectsData.length) %
+            reversedProjectsData.length
         );
       }
-    }, 100); // 设置去抖时间（200ms）
+    }, 100);
   };
 
   const handleTouchStart = (e) => {
@@ -62,20 +68,23 @@ const Index = () => {
   const handleTouchEnd = (e) => {
     const endY = e.changedTouches[0].clientY;
     const deltaY = startY - endY;
-    console.log(currentIndex, projectsData.length);
+
     if (deltaY > 30) {
       // 向上滑动
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % reversedProjectsData.length
+      );
     } else if (deltaY < -30) {
       // 向下滑动
       setCurrentIndex(
         (prevIndex) =>
-          (prevIndex - 1 + projectsData.length) % projectsData.length
+          (prevIndex - 1 + reversedProjectsData.length) %
+          reversedProjectsData.length
       );
     }
   };
 
-  const currentProject = projectsData[currentIndex];
+  const currentProject = reversedProjectsData[currentIndex];
 
   const [visibleModals, setVisibleModals] = useState([]); // Store active modals
   const accumulatedDistance = useRef(0);
@@ -111,8 +120,8 @@ const Index = () => {
           x,
           y,
           image:
-            projectsData[currentIndex].img[
-              id % projectsData[currentIndex].img.length
+            reversedProjectsData[currentIndex].img[
+              id % reversedProjectsData[currentIndex].img.length
             ],
         },
       ]);
@@ -160,7 +169,7 @@ const Index = () => {
 
         {/* Main Content */}
         <div className="w-3/4 flex flex-col justify-between items-center">
-          <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden min-h-[120px] cursor-pointer">
+          <div className="flex text-5xl md:text-6xl lg:text-7xl xl:text-8xl overflow-hidden min-h-[120px] cursor-pointer p-3">
             <Link href={`/projects/${currentProject.link}`}>
               <motion.div
                 key={currentIndex}
@@ -231,7 +240,7 @@ const Index = () => {
         <div className=" text-xs flex ml-auto md:ml-0 text-gray-500 italic ">
           <Minimap
             idx={currentIndex}
-            total={projectsData.length}
+            total={reversedProjectsData.length}
             setCurrentIndex={setCurrentIndex}
           />
         </div>
@@ -257,11 +266,11 @@ const Index = () => {
           >
             <div className="w-full h-full flex items-center justify-center overflow-hidden">
               <Image
-              src={modal.image}
-              fill
-              className="object-cover rounded-xl"
-              alt={`image-${modal.id}`}
-            />
+                src={modal.image}
+                fill
+                className="object-cover rounded-xl"
+                alt={`image-${modal.id}`}
+              />
             </div>
           </motion.div>
         ))}

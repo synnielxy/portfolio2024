@@ -10,23 +10,20 @@ import Link from "@/common/Link";
 const skills = [
   "React",
   "Next.js",
-  "Supabase",
-  "Firebase",
+  "Typescript",
+  "Figma",
   "Node.js",
   "Express",
   "GLSL",
   "Three.js",
   "D3.js",
-  "Typescript",
-  "Redux",
+  "Supabase",
+  "Firebase",
   "Photoshop",
-  "After Effects",
   "Blender",
   "Serverless",
   "Docker",
-  "Nginx",
   "AWS",
-  "Stripe",
 ];
 const Index = () => {
   const imageRef = useRef(null);
@@ -57,7 +54,7 @@ const Index = () => {
             variants={slideUp}
             className="font-inria text-gray-500"
           >
-            Full stack developer with experience in designing and building
+            Design Engineer with experience in designing and building
             immersive web experiences. Skilled in both front-end and back-end
             development, with a focus on WebGL, React, and serverless
             technologies.

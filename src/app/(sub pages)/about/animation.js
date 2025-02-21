@@ -1,16 +1,19 @@
 export const slideUp = {
   initial: {
-      y: "100%"
+    y: "100%",
+    opacity: 0, // 初始透明度为0
   },
   open: (i) => ({
-      y: "0%",
-      transition: {duration: 0.5, delay: .3 * i}
+    y: "0%",
+    opacity: 1, // 动画结束时透明度为1
+    transition: { duration: 0.5, delay: 0.3 * i },
   }),
   closed: {
-      y: "100%",
-      transition: {duration: 0.5}
-  }
-}
+    y: "100%",
+    opacity: 0, // 关闭时透明度为0
+    transition: { duration: 0.5 },
+  },
+};
 export const slideWithMask = {
   initial: {
     x: "100%", // 初始位置在屏幕右侧

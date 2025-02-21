@@ -22,7 +22,7 @@ export default function ProjectPage({ params }) {
 
   function findAdjacentLinks(projects, currentLink) {
     // 找到当前项目的索引
-    const currentIndex = projects.findIndex(
+    const currentIndex = projectsData.length - 1 - projects.findIndex(
       (project) => project.link === currentLink
     );
 
@@ -32,10 +32,13 @@ export default function ProjectPage({ params }) {
     }
 
     // 获取上一个和下一个项目
-    const previous = currentIndex > 0 ? projects[currentIndex - 1].link : null;
+    const previous =
+      currentIndex > 0
+        ? projects[projectsData.length - currentIndex].link
+        : null;
     const next =
       currentIndex < projects.length - 1
-        ? projects[currentIndex + 1].link
+        ? projects[projectsData.length - currentIndex  - 2].link
         : null;
 
     return { previous, next };
@@ -120,9 +123,13 @@ export default function ProjectPage({ params }) {
               className="font-inria  items-center hidden md:flex"
               layoutId="shared-title"
             >
-              <p className="text-5xl md:text-6xl lg:text-7xl ">0{project.id}</p>
+              <p className="text-5xl md:text-6xl lg:text-7xl ">
+                0{projectsData.length - project.id + 1}
+              </p>
               <p className="text-gray-500 px-3">/</p>
-              <p className="text-5xl md:text-6xl lg:text-7xl ">07</p>
+              <p className="text-5xl md:text-6xl lg:text-7xl ">
+                0{projectsData.length}
+              </p>
             </motion.div>
           </div>
 
@@ -137,7 +144,7 @@ export default function ProjectPage({ params }) {
                   className=""
                 >
                   <p className="text-sm">{detail.label}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 h-12 md:h-auto overflow-auto">
                     {detail.label === "TECHNOLOGIES" ? (
                       <span className="inline-flex gap-1 md:gap-2 flex flex-wrap">
                         {project.technologies.map((tech, techIndex) => (
@@ -177,7 +184,7 @@ export default function ProjectPage({ params }) {
 
       <ProjectFooter projects={adjacentLinks} />
 
-      <div
+      {imageSrc && <div
         className={"lightbox" + (viewing ? ` active` : "")}
         onClick={() => setViewing(false)}
       >
@@ -192,7 +199,7 @@ export default function ProjectPage({ params }) {
           sizes="(max-width: 768px) 100vw, 50vw"
           objectFit="contain"
         />
-      </div>
+      </div>}
     </>
   );
 }
