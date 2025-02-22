@@ -128,7 +128,7 @@ export const projectsData = [
     technologies: [
       "Nextjs 14",
       "TypeScript",
-      "Supabase (PostgreSQL)",
+      "Supabase",
       "Prisma ORM",
       "Stripe Subsctiptions",
       "Clerk Authentication",

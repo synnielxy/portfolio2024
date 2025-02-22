@@ -3,21 +3,30 @@ import Link from "next/link";
 
 import { GoArrowUpRight } from "react-icons/go";
 
-const Index = ({ href, children }) => {
-  return (
-    <Link href={href}>
-      <button
-        className="border
-          border-black  py-1 px-4 rounded-lg flex items-center
-            justify-between
-           text-xs w-full "
+const Index = ({ href, onClick, children, newtab=false }) => {
+  const content = (
+    <button
+      className="border border-black py-1 px-4 rounded-lg flex items-center justify-between text-xs w-full"
+      onClick={onClick}
+    >
+      <div className="">{children}</div>
+      <p className="">
+        <GoArrowUpRight />
+      </p>
+    </button>
+  );
+
+  return href ? (
+    <Link href={href} passHref legacyBehavior>
+      <a
+        target={newtab ? "_blank" : undefined}
+        rel={newtab ? "noopener noreferrer" : undefined}
       >
-        <div className="">{children}</div>
-        <p className="">
-          <GoArrowUpRight />
-        </p>
-      </button>
+        {content}
+      </a>
     </Link>
+  ) : (
+    content
   );
 };
 
