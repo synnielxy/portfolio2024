@@ -155,7 +155,7 @@ export const projectsData = [
     ],
     link: "pax",
     url: "https://paxai.com/",
-    desc: "Developed a modern landing page for Pax using Next.js and TypeScript, delivering efficient server-side rendering and dynamic frontend functionality. Implemented custom animations using code to enhance user engagement and create a seamless interactive experience.",
+    desc: "Developed a modern landing page for Pax using Next.js and TypeScript, delivering efficient server-side rendering and dynamic frontend functionality. Implemented custom animations using code to enhance user engagement.",
     role: "Design / Development",
     client: "Pax",
     date: "Jan, 2025",
